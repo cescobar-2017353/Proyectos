@@ -1,0 +1,159 @@
+<body>
+  <app-navbar></app-navbar>
+<div class="text-center">
+
+  <div style = "float: left" >
+    <div class="input-group"><input [(ngModel)]="search1" class="search" type="text" placeholder="Buscar" style="font-size: 1.4rem; font-family:'Courier New', Courier, monospace ; border-left: 10px;" /></div>
+    <div class="disclaimer"></div>
+</div>
+
+  <div class="multi-buttonA"  style = "float: right">
+    <button id="b" class="btn btn-success m-3 "
+    data-bs-toggle="modal" data-bs-target="#exampleModalCenter">AGREGAR EMPRESA</button>
+  </div>
+</div>
+<div class="hola" style="margin-top: -5%">
+  <br>
+    <div class="table-users " style="width: 100%">
+      <div class="header">Empresas</div>
+  
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th >ID</th>
+            <th> Nombre </th>
+            <th>Tipo</th>
+            <th>Username</th>
+            <th style="width: 13rem;">Actualizar</th>
+            <th style="width: 13rem;">Eliminar</th>
+            <th style="width: 13rem;">Ver Sucursales</th>
+            
+         </tr>
+  
+        </thead>
+    
+        <tbody>
+          <tr *ngFor="let company of companys | search:search1 , let i=index">
+            <td >{{i+1}}</td>
+            <td>{{company.name}}</td>
+            <td>{{company.type}}</td>
+            <td>{{company.username}}</td>
+           
+            <td>
+              <div >
+                <i><img src="../../../assets/img/actualizar.png" alt="" width="20rem" height="20rem"(click)="getCompany(company._id)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2"  ></i>
+              </div>
+            </td>
+
+            <td>
+              <div >
+                <i><img src="../../../assets/img/eliminar.png" alt="" width="20rem" height="20rem"(click)="deleteCompanyByAdmin(company._id)"></i>
+              </div>
+  
+            </td>
+
+            <td>
+              <div >
+                <i><img (click)="getCompany(company._id)"  [routerLink]="['/branchByAdmin/' + company._id]"src="../../../assets/img/ver.png" alt="" width="20rem" height="20rem"></i>
+              </div>
+  
+            </td>
+         </tr>
+  
+        </tbody>
+         
+        </table>
+      </div>
+    </div>
+
+<!-- Modal Add company -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content rounded -0">
+      <div class="modal-body py-0">
+        <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex main-content">
+          <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/empree.jpg');">
+          </div>
+          <div class="content-text p-4">
+            <h3>Agregar Empresa</h3>
+            <form #addCompanyForm="ngForm">
+              <div class="form-group">
+                <label for="name">Nombre de la Empresa</label>
+                <input [(ngModel)]="company.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+              </div>
+              <div class="box form-group">
+                <label for="tipo">Tipo de empresa</label>
+                <select [(ngModel)]="company.type" name="tipo" class="form-select" aria-label="Default select example">
+                  <option value="" disabled >Menú de Selección</option>
+                  <option>Restaurante</option>
+                  <option>Tecnología</option>
+                  <option>Transporte</option>
+                  <option>Vestimenta</option>
+                  <option>Indefinido (Otro)</option>
+
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input [(ngModel)]="company.username"  name="username" type="text" class="form-control" id="username" placeholder="Nombre de usuario">
+              </div>
+              <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input [(ngModel)]="company.password"  name="password" type="password" class="form-control" id="password" placeholder="Contraseña">
+              </div>
+
+              <div class="form-group">
+                <div class="multi-buttonA" >
+                <button (click)="registerCompanyByAdmin(addCompanyForm)" class="btn btn-success m-3 "
+                  data-bs-toggle="modal" >Guardar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Actualizar -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content rounded -0">
+      <div class="modal-body py-0">
+        <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex main-content">
+          <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/emc.jpg');">
+          </div>
+          <div class="content-text p-4">
+            <h3>Actualizar empresa</h3>
+            <form *ngIf="companyUpdate">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input [(ngModel)]="companyUpdate.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <label for="type">Tipo de empresa</label>
+                <input [(ngModel)]="companyUpdate.type" name="type" type="text" class="form-control" id="type" placeholder="Type">
+              </div>
+              <label for="username">Nombre de usuario</label>
+                <input [(ngModel)]="companyUpdate.username" name="username" type="text" class="form-control" id="username" placeholder="Username">
+              <div class="form-group">
+                <div class="multi-buttonA" >
+                  <button (click)="updateCompanyByAdmin()" class="btn btn-success m-3 "
+                  data-bs-toggle="modal" >Actualizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

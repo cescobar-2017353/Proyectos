@@ -1,0 +1,37 @@
+<body>
+  <app-navbar></app-navbar>
+<!--HOME-->
+<div id="padre">
+  <div class="row" id="hijo">
+    <div  id="contenedor" class="card m-5" style="width: 18rem;" *ngIf="role =='ADMIN'" >
+      <a  class="nav-link" routerLink="/company">
+        <i><img src="../../../assets/img/empresa (1).png" alt="" width="200rem" height="200rem"></i>
+        <br>
+        <h6 id="titulo">Empresas</h6>
+        <span class="sr-only"></span>
+        </a>
+
+    </div>
+    <div id="contenedor" class="card m-5" style="width: 18rem;" *ngIf="role =='CLIENT'">
+      <a  class="nav-link" routerLink="/branch">
+        <i><img src="../../../assets/img/tienda.png" alt="" width="200rem" height="200rem"></i>
+        <br>
+        <h6 id="titulo">Sucursales</h6>
+        <span class="sr-only"></span>
+        </a>
+
+    </div>
+    <div id="contenedor" class="card m-5" style="width: 18rem;" *ngIf="role =='CLIENT'">
+      <a class="nav-link" routerLink="/productCompany">
+        <i><img src="../../../assets/img/paquete.png" alt="" width="200rem" height="200rem"></i>
+        <br>
+        <h6 id="titulo">Productos</h6>
+        <span class="sr-only"></span>
+        </a>
+
+    </div>
+       
+  </div>
+</div>
+
+</body>

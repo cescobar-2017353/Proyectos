@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="392.0" prefWidth="359.0" styleClass="anchorpane" stylesheets="@../resource/CSSCalculadora.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.carlosescobar.system.FXMLDocumentController">
+    <children>
+        <Button fx:id="btnUno" layoutX="37.0" layoutY="260.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="1">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnDos" layoutX="96.0" layoutY="260.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="2">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnTres" layoutX="153.0" layoutY="260.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="3">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnCuatro" layoutX="37.0" layoutY="203.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="4">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnCinco" layoutX="96.0" layoutY="203.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="5">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <TextField fx:id="txtPantalla" alignment="CENTER_RIGHT" editable="false" layoutX="14.0" layoutY="32.0" prefHeight="25.0" prefWidth="331.0">
+         <font>
+            <Font name="Broadway" size="21.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.21" color="#27c674" height="32.86" radius="23.3425" width="62.51" />
+         </effect>
+      </TextField>
+      <Button fx:id="btnSeis" layoutX="153.0" layoutY="203.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="6">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnSiete" layoutX="37.0" layoutY="147.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="7">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnOcho" layoutX="96.0" layoutY="147.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="8">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnNueve" layoutX="153.0" layoutY="147.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="9">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnMasMenos" layoutX="37.0" layoutY="319.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="+/-">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnCero" layoutX="96.0" layoutY="319.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text="0">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnPunto" layoutX="153.0" layoutY="319.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button1" stylesheets="@../resource/CSSCalculadora.css" text=".">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Button fx:id="btnIgual" layoutX="214.0" layoutY="319.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="140.0" styleClass="button2" stylesheets="@../resource/CSSCalculadora.css" text="=">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnMas" layoutX="214.0" layoutY="260.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="+">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnMenos" layoutX="214.0" layoutY="203.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="-">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnMultiplicacion" layoutX="214.0" layoutY="147.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="*">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnDivision" layoutX="214.0" layoutY="89.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="/">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnCE" layoutX="96.0" layoutY="89.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="CE">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnC" layoutX="37.0" layoutY="89.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="C">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnPorcentaje" layoutX="153.0" layoutY="89.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="\%">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnXelevadoY" layoutX="273.0" layoutY="89.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="X^Y">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnAbs" layoutX="273.0" layoutY="147.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="abs">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btnRaiz" layoutX="273.0" layoutY="203.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/CSSCalculadora.css" text="√">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+    </children>
+   <effect>
+      <InnerShadow choke="0.55" color="#3b175e" height="70.08" radius="34.81" width="71.16" />
+   </effect>
+</AnchorPane>

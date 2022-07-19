@@ -1,0 +1,148 @@
+<navbar></navbar>
+
+<div class="text-center">
+    <button class="btn btn-success m-3 "
+    data-bs-toggle="modal" data-bs-target="#exampleModal">New Team</button>
+    <button class="btn btn-secondary m-3 "
+    data-bs-toggle="modal" data-bs-target="#exampleModa2">Add Marker</button>
+    <button class="btn btn-primary m-3 " [routerLink]="['/table/' + idLeague]"
+    >View Table</button>
+    <button class="btn btn-info m-3 " [routerLink]="['/graph/' + idLeague]"
+    >View Graph</button>
+</div>
+<hr>
+<div class="text-center" >
+  <h1 *ngIf="league" class="m-4">{{league.name}}</h1>
+</div>
+
+<div class="row">
+    <div *ngFor="let team of teams" class="card m-4" style="width: 18rem;">
+        <img src="../../assets/image/iconoTeam2.png" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">{{team.name}}</h5>
+            <p class="card-text">Team Points: {{team.teamPoints}}</p>
+            <p class="card-text">Positive Goals: {{team.positiveGoals}}</p>
+            <p class="card-text">Negative Goals: {{team.negativeGoals}}</p>
+            <p class="card-text">Difference Goals: {{team.differenceGoals}}</p>
+            <p class="card-text">Games Played: {{team.gamesPlayed}}</p>
+            <button (click)="getTeam(team._id)"class="btn btn-warning m-3"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
+            >Update
+            </button>
+            <button (click)="deleteTeam(team._id)" class="btn btn-danger m-3">Delete</button>
+            
+        </div>
+      </div>
+</div>
+
+<!-- Modal save Team -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Team</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #addTeamForm="ngForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input [(ngModel)]="team.name" name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+            
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="saveTeam(addTeamForm)"  type="button" class="btn btn-primary"
+          data-bs-dismiss="modal">Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal save Marcador -->
+<div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Marker</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #addGameForm="ngForm">
+                <div class="mb-3"> 
+                    <label for="form-label">Team Local</label>
+                    <select [(ngModel)]="game.teamLocal" name="local" class="form-select" aria-label="Default select example">
+                        <option value="" disabled >Open this select menu</option>
+                        <option *ngFor="let team of teams" value="{{team._id}}">{{team.name}}</option>
+                      </select>
+                </div>
+                <div class="mb-3"> 
+                  <label for="form-label">Team Visitor</label>
+                  <select [(ngModel)]="game.teamVisitor" name="visitor" class="form-select" aria-label="Default select example">
+                      <option value="" disabled >Open this select menu</option>
+                      <option *ngFor="let team of teams" value="{{team._id}}">{{team.name}}</option>
+                    </select>
+              </div>
+                <div class="mb-3">
+                    <label for="goalsLocal" class="form-label">Goals Local</label>
+                    <input [(ngModel)]="game.goalsLocal" name="goalsLocal" type="text" class="form-control" id="goalsLocal" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="goalsVisitor" class="form-label">Goals Visitor</label>
+                    <input [(ngModel)]="game.goalsVisitor" name="goalsVisitor" type="text" class="form-control" id="goalsVisitor" aria-describedby="emailHelp">
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="addGame(addGameForm)"  type="button" class="btn btn-primary"
+          data-bs-dismiss="modal">Save Marker
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--Offcanvas   Update Team-->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Update Team</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form *ngIf="teamUpdate">
+            <div class="mb-3">
+              <label for="nameUpdate" class="form-label">Name</label>
+              <input [(ngModel)]="teamUpdate.name"  name="name" type="text" class="form-control" id="nameUpdate" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="teamPoints" class="form-label">teamPoints</label>
+                <input [(ngModel)]="teamUpdate.teamPoints"  name="teamPoints" type="text" class="form-control" id="teamPoints" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="positiveGoals" class="form-label">positiveGoals</label>
+                <input [(ngModel)]="teamUpdate.positiveGoals"  name="positiveGoals" type="text" class="form-control" id="positiveGoals" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="negativeGoals" class="form-label">negativeGoals</label>
+                <input [(ngModel)]="teamUpdate.negativeGoals"  name="negativeGoals" type="text" class="form-control" id="negativeGoals" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="differenceGoals" class="form-label">differenceGoals</label>
+                <input [(ngModel)]="teamUpdate.differenceGoals"  name="differenceGoals" type="text" class="form-control" id="differenceGoals" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="gamesPlayed" class="form-label">gamesPlayed</label>
+                <input [(ngModel)]="teamUpdate.gamesPlayed"  name="gamesPlayed" type="text" class="form-control" id="gamesPlayed" aria-describedby="emailHelp">
+              </div>
+      
+            <button (click)="updateTeam()" class="btn btn-warning mt -4"> Update</button>
+          </form>
+          
+        </div>
+      </div>
+
+

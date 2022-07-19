@@ -1,0 +1,36 @@
+
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>CREATE AN ACCOUNT</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form (ngSubmit)="register(registerForm)" #registerForm="ngForm" action="#" method="post">
+					<input [(ngModel)]="user.name" #name="ngModel" class="text" type="text" name="Name" placeholder="Name" required>
+					<br>
+
+					<input [(ngModel)]="user.surname" #surname="ngModel" class="text" type="text" name="Surname" placeholder="Surname" required>
+					<br>
+
+					<input [(ngModel)]="user.username" #username="ngModel" class="text" type="text" name="Username" placeholder="Username" required>
+
+					<input [(ngModel)]="user.email" #email="ngModel" class="text email" type="email" name="email" placeholder="Email" required>
+
+					<input [(ngModel)]="user.password" #password="ngModel" class="text" type="password" name="password" placeholder="Password" required>
+					<div class="wthree-text">
+						<label class="anim">
+							<input ngModel name="check" type="checkbox" class="checkbox" required>
+							<span >I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<button [disabled]="!registerForm.form.valid" type="submit" class="input">Register</button>
+				</form>
+				<p><a routerLink="/login"> Login Now!</a></p>
+			</div>
+		</div>
+
+	</div>
+	<!-- //main -->
+</body>
+

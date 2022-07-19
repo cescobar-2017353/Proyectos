@@ -1,0 +1,13 @@
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    background-image: url('../../assets/image/estadio.jpg') ;
+    background-size: cover;
+  }
+  
+
+.card{
+  background-color: transparent ;
+ 
+  
+}

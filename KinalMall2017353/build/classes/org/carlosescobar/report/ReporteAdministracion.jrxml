@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteAdministracion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ee3b4be-876e-4cd3-9db1-b90fb03d6e6e">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[call sp_ListarAdministracion();
+]]>
+	</queryString>
+	<field name="codigoAdministracion" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="572" height="752" uuid="f74e92d5-0809-45ab-947d-912ae4fb779e"/>
+				<imageExpression><![CDATA["C:\\Users\\Carlos\\Documents\\NetBeansProjects\\KinalMall2017353\\src\\org\\carlosescobar\\images\\membrante.png"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" hAlign="Justified">
+				<reportElement x="333" y="0" width="229" height="114" uuid="7f607232-338e-4fed-a735-65ff291876de"/>
+				<imageExpression><![CDATA["C:\\Users\\Carlos\\Documents\\NetBeansProjects\\KinalMall2017353\\src\\org\\carlosescobar\\images\\logggg.JPG"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame">
+				<reportElement x="240" y="10" width="132" height="92" uuid="1a3b760f-b470-4b1e-ae59-69deca04cc8a"/>
+				<imageExpression><![CDATA["C:\\Users\\Carlos\\Documents\\NetBeansProjects\\KinalMall2017353\\src\\org\\carlosescobar\\images\\llama.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="45" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="55" y="0" width="467" height="45" forecolor="#0C0C60" backcolor="#090979" uuid="7e0359f8-3939-4211-bfcd-d4746772119c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="65" y="13" width="100" height="20" forecolor="#FFFFFF" uuid="a26bbad6-2239-473c-8539-18012d46ca3e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Código Administración]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="13" width="100" height="20" forecolor="#FFFFFF" uuid="9ea23654-6470-4bd2-9de0-03428b64a1b4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="10"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="13" width="100" height="20" forecolor="#FFFFFF" uuid="1ede0409-02da-4269-9de4-13d9e12c6f83"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="101" y="21" width="100" height="20" forecolor="#FFFFFF" uuid="2da5ac0e-1eac-4e89-b8c3-bf14ecea6e7d"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{codigoAdministracion}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="83" y="52" width="417" height="1" forecolor="#0033CC" uuid="30dd295e-d0b3-4479-8e27-a6701f8013a1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed" lineColor="#191C6B"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="223" y="21" width="100" height="20" forecolor="#FFFFFF" uuid="7c76211b-fb99-423b-85de-12b50b4d7329"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="21" width="100" height="20" forecolor="#FFFFFF" uuid="0414022c-b93a-4e66-8713-519b4e224332"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

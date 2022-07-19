@@ -1,0 +1,802 @@
+{
+	"info": {
+		"_postman_id": "383b8359-11c0-4ec1-85c4-2376dd88947a",
+		"name": "Control-de-sucursales-smartSales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Regitrar Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Humberto",
+									"type": "default"
+								},
+								{
+									"key": "surname",
+									"value": "de la Cruz",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "hdelacruz",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "asdasd@asdasd",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/admin/registerAdmin",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"registerAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "mac",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/admin/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Registrar empresa(ADMIN)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YTg2MzAyODQ1NmUzYTY2OGYxMTUiLCJuYW1lIjoiSHVtYmVydG8iLCJzdXJuYW1lIjoiZGUgbGEgQ3J1eiIsInVzZXJuYW1lIjoiaGRlbGFjcnV6Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUyOTI2NTg4LCJleHAiOjE2NTI5NDQ1ODh9.uFIA5qYGLNfFp7p1QJ5Xmnvlf10XyNwmgZSzZwFVWqs\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Mac",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "mac",
+									"type": "default"
+								},
+								{
+									"key": "type",
+									"value": "Restaurante",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/company/registerCompanyByAdmin",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"registerCompanyByAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCompanys (ADMIN)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YTg2MzAyODQ1NmUzYTY2OGYxMTUiLCJuYW1lIjoiSHVtYmVydG8iLCJzdXJuYW1lIjoiZGUgbGEgQ3J1eiIsInVzZXJuYW1lIjoiaGRlbGFjcnV6Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUyOTI2NTg4LCJleHAiOjE2NTI5NDQ1ODh9.uFIA5qYGLNfFp7p1QJ5Xmnvlf10XyNwmgZSzZwFVWqs\"",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/company/getCompanys",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"getCompanys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company (ADMIN)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YTg2MzAyODQ1NmUzYTY2OGYxMTUiLCJuYW1lIjoiSHVtYmVydG8iLCJzdXJuYW1lIjoiZGUgbGEgQ3J1eiIsInVzZXJuYW1lIjoiaGRlbGFjcnV6Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUyOTI2NTg4LCJleHAiOjE2NTI5NDQ1ODh9.uFIA5qYGLNfFp7p1QJ5Xmnvlf10XyNwmgZSzZwFVWqs\"",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/company/getCompany/6285ac342e008e3d615531c7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"getCompany",
+								"6285ac342e008e3d615531c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCompany (ADMIN)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YTg2MzAyODQ1NmUzYTY2OGYxMTUiLCJuYW1lIjoiSHVtYmVydG8iLCJzdXJuYW1lIjoiZGUgbGEgQ3J1eiIsInVzZXJuYW1lIjoiaGRlbGFjcnV6Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUyOTI2NTg4LCJleHAiOjE2NTI5NDQ1ODh9.uFIA5qYGLNfFp7p1QJ5Xmnvlf10XyNwmgZSzZwFVWqs\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Pollo Campero",
+									"type": "default"
+								},
+								{
+									"key": "type",
+									"value": "Restaurante",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "pollo",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/company/updateCompanyByAdmin/6285ac342e008e3d615531c7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"updateCompanyByAdmin",
+								"6285ac342e008e3d615531c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company (ADMIN)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YTg2MzAyODQ1NmUzYTY2OGYxMTUiLCJuYW1lIjoiSHVtYmVydG8iLCJzdXJuYW1lIjoiZGUgbGEgQ3J1eiIsInVzZXJuYW1lIjoiaGRlbGFjcnV6Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUyOTI4ODM1LCJleHAiOjE2NTI5NDY4MzV9.Y-PigKnD-Vnh9kQIvoSErwUmtiGFjAYihr0-MUwZcfo\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/company/deleteCompanyByAdmin/6285b0e62e008e3d615531eb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"deleteCompanyByAdmin",
+								"6285b0e62e008e3d615531eb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Branch",
+			"item": [
+				{
+					"name": "Add Branch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWMzNDJlMDA4ZTNkNjE1NTMxYzciLCJuYW1lIjoiUG9sbG8gQ2FtcGVybyIsInVzZXJuYW1lIjoicG9sbG8iLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5MDAyLCJleHAiOjE2NTI5NDcwMDJ9.sy-D8lPBlR2doaGcqzjrc2DxDXQohLLYFSRDGhHnsxc\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Campero Z.10",
+									"type": "default"
+								},
+								{
+									"key": "direction",
+									"value": "zona 10",
+									"type": "default"
+								},
+								{
+									"key": "company",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/branch/addBranch",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"branch",
+								"addBranch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Branch",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWMzNDJlMDA4ZTNkNjE1NTMxYzciLCJuYW1lIjoiUG9sbG8gQ2FtcGVybyIsInVzZXJuYW1lIjoicG9sbG8iLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5MDAyLCJleHAiOjE2NTI5NDcwMDJ9.sy-D8lPBlR2doaGcqzjrc2DxDXQohLLYFSRDGhHnsxc\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "sucursal",
+									"type": "default"
+								},
+								{
+									"key": "direction",
+									"value": "direction1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/branch/updateBranch/6285b1fc2e008e3d61553205",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"branch",
+								"updateBranch",
+								"6285b1fc2e008e3d61553205"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branchs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWMzNDJlMDA4ZTNkNjE1NTMxYzciLCJuYW1lIjoiUG9sbG8gQ2FtcGVybyIsInVzZXJuYW1lIjoicG9sbG8iLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5MDAyLCJleHAiOjE2NTI5NDcwMDJ9.sy-D8lPBlR2doaGcqzjrc2DxDXQohLLYFSRDGhHnsxc\"",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/branch/getBranchs",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"branch",
+								"getBranchs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branch",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWMzNDJlMDA4ZTNkNjE1NTMxYzciLCJuYW1lIjoiUG9sbG8gQ2FtcGVybyIsInVzZXJuYW1lIjoicG9sbG8iLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5MDAyLCJleHAiOjE2NTI5NDcwMDJ9.sy-D8lPBlR2doaGcqzjrc2DxDXQohLLYFSRDGhHnsxc\"",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/branch/getBranch/6285b1ce2e008e3d615531fd",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"branch",
+								"getBranch",
+								"6285b1ce2e008e3d615531fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Branch",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWMzNDJlMDA4ZTNkNjE1NTMxYzciLCJuYW1lIjoiUG9sbG8gQ2FtcGVybyIsInVzZXJuYW1lIjoicG9sbG8iLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5MDAyLCJleHAiOjE2NTI5NDcwMDJ9.sy-D8lPBlR2doaGcqzjrc2DxDXQohLLYFSRDGhHnsxc\"",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/branch/deleteBranch/6285b1fc2e008e3d61553205",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"branch",
+								"deleteBranch",
+								"6285b1fc2e008e3d61553205"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Branch (ADMIN)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YTg2MzAyODQ1NmUzYTY2OGYxMTUiLCJuYW1lIjoiSHVtYmVydG8iLCJzdXJuYW1lIjoiZGUgbGEgQ3J1eiIsInVzZXJuYW1lIjoiaGRlbGFjcnV6Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNjUyOTI5Mjc2LCJleHAiOjE2NTI5NDcyNzZ9.eRdk6so8zriJb_jWJ91rHcG4sw7coovQYuQG9yKWTuw\"",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/branch/getBranchByAdmin/6285ac4b2e008e3d615531d1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"branch",
+								"getBranchByAdmin",
+								"6285ac4b2e008e3d615531d1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produc Company",
+			"item": [
+				{
+					"name": "Add Product Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "carne",
+									"type": "default"
+								},
+								{
+									"key": "supplier",
+									"value": "BB",
+									"type": "default"
+								},
+								{
+									"key": "stock",
+									"value": "100",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/productCompany/addProductCompany",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productCompany",
+								"addProductCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Tomate",
+									"type": "default"
+								},
+								{
+									"key": "supplier",
+									"value": "BB",
+									"type": "default"
+								},
+								{
+									"key": "stock",
+									"value": "1000",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/productCompany/updateProduct/6285b5152b5a1a39d70c474c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productCompany",
+								"updateProduct",
+								"6285b5152b5a1a39d70c474c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/productCompany/deleteProduct/6285b51b2b5a1a39d70c474f",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productCompany",
+								"deleteProduct",
+								"6285b51b2b5a1a39d70c474f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products Company (Ascendente)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/productCompany/getProducts2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productCompany",
+								"getProducts2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get products Company (Descendente)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/productCompany/getProducts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productCompany",
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product branch",
+			"item": [
+				{
+					"name": "Add Product a Sucursal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "productCompany",
+									"value": "6285b88c2b5a1a39d70c4789",
+									"type": "text"
+								},
+								{
+									"key": "branch",
+									"value": "6285b1ba2e008e3d615531fa",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/productBranch/addProductBranch",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productBranch",
+								"addProductBranch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add sale",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "sale",
+									"value": "25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/productBranch/addSale/6285b7002b5a1a39d70c4776",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productBranch",
+								"addSale",
+								"6285b7002b5a1a39d70c4776"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get products Branch (Descendente)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/productBranch/getProductsBranch/6285b1ba2e008e3d615531fa",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productBranch",
+								"getProductsBranch",
+								"6285b1ba2e008e3d615531fa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get products Branch (Ascendente)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Mjg1YWM0YjJlMDA4ZTNkNjE1NTMxZDEiLCJuYW1lIjoiTUFDIiwidXNlcm5hbWUiOiJtYWMiLCJ0eXBlIjoiUmVzdGF1cmFudGUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjUyOTI5Nzk5LCJleHAiOjE2NTI5NDc3OTl9.mdNETLuAOzgcuVcaF9oNS1QtxwVAA40eDVjmslL6mS8\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/productBranch/getProductsBranch2/6285b1ba2e008e3d615531fa",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"productBranch",
+								"getProductsBranch2",
+								"6285b1ba2e008e3d615531fa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

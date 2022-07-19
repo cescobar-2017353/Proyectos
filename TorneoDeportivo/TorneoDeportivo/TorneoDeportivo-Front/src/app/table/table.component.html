@@ -1,0 +1,42 @@
+<navbar></navbar>
+
+<div class="text-center" >
+  <h1 *ngIf="league" class="m-5" >{{league.name}}</h1>
+</div>
+<hr>
+<section class="content-info">
+  <div class="container paddings-mini">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table-striped table-responsive table-hover result-point">
+          <thead class="point-table-head">
+            <tr>
+              <th class="text-left">No</th>
+              <th class="text-left">TEAM</th>
+              <th class="text-center">PJ</th>
+              <th class="text-center">GF</th>
+              <th class="text-center">GC</th>
+              <th class="text-center">DG</th>
+              <th class="text-center">PTS</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let team of teams, let i=index">
+              <td class="text-left number">
+                {{i+1}}<i class="fa fa-caret-up" aria-hidden="true"></i>
+              </td>
+              <td class="text-left">
+                <span>{{team.name}}</span>
+              </td>
+              <td>{{team.gamesPlayed}}</td>
+              <td>{{team.positiveGoals}}</td>
+              <td>{{team.negativeGoals}}</td>
+              <td>{{team.differenceGoals}}</td>
+              <td>{{team.teamPoints}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,103 @@
+<body>
+<app-navbar></app-navbar>
+<div>
+    <div class="text-center" >
+
+      <div style = "float: left" >
+        <div class="input-group"><input [(ngModel)]="search3" class="search" type="text" placeholder="Buscar" style="font-size: 1.4rem; font-family:'Courier New', Courier, monospace ; border-left: 10px;" /></div>
+        <div class="disclaimer"></div>
+    </div>
+      
+      <div class="multi-buttonB"  style = "float: right">
+      <button id="b2" (click)="getProductsBranch2()" class="btn btn-success m-3 " >Ordenar de Menor a Mayor</button>
+      </div>
+    
+      <div class="multi-buttonC"  style = "float: right">
+      <button id="b2" (click)="getProductsBranch()"class="btn btn-success m-3 ">Ordenar de Mayor a Menor</button>
+      </div>
+      <div class="multi-buttonA"  style = "float: right">
+        <button [routerLink]="['/graph/' + idBranch]" id="b" class="m-3 ">Visualizar Gráfica</button>
+        </div>
+    
+    </div>
+  
+  </div>
+  
+  
+  
+  <div class="hola" style="margin-top: -7%">
+    <div class="text-center" >
+      <h1 *ngIf="branch" class="m-4" id="titulo">SUCURSAL {{branch.name}}</h1>
+    </div>
+  <br>
+    <div class="table-users" style="width: 100%">
+      <div class="header">Productos Sucursal</div>
+  
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th> Stock </th>
+            <th>Total de Ventas</th>
+            <th style="width: 15rem;">Vender Producto</th>
+            
+         </tr>
+  
+        </thead>
+    
+        <tbody *ngIf="productBranchs" >
+          <tr *ngFor="let productBranch of productBranchs | search2:search3, let i=index">
+            <td >{{i +1}}</td>
+            <td>{{productBranch.productCompany.name}}</td>
+            <td>{{productBranch.stock}}</td>
+            <td>{{productBranch.totalSales}}</td>
+            <td>
+              <div >
+                <i><img src="../../../assets/img/verificar.png" alt="" width="20rem" height="20rem"  (click)="getProductBranch(productBranch._id)" data-bs-toggle="modal" data-bs-target="#saleModal" ></i>
+              </div>
+            </td>
+         </tr>
+        </tbody>
+         
+        </table>
+        
+
+      </div>
+
+    </div>
+   
+
+<!-- Modal -->
+<div class="modal fade" id="saleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content rounded -0">
+      <div class="modal-body py-0">
+        <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex main-content">
+          <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/p2.jpg');">
+          </div>
+          <div class="content-text p-4">
+            <h3 style="text-align:center;">Realizar Venta</h3>
+            <br>
+            <form #addSaleForm="ngForm">
+              <div class="form-group">
+                <label for="sale">Ingresar Cantidad</label>
+                <input [(ngModel)]="sale" name="sale" type="number" class="form-control" id="sale" placeholder="Cantidad">
+              </div>
+              <div class="form-group">
+                <div class="multi-buttonA" >
+                <button (click)="addSale(addSaleForm)" class="btn btn-success m-3 "
+                  data-bs-toggle="modal" >Vender</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

@@ -1,0 +1,159 @@
+<body>
+  
+
+<app-navbar></app-navbar>
+<div class="text-center">
+
+  <div style = "float: left" >
+    <div class="input-group"><input [(ngModel)]="search2" class="search" type="text" placeholder="Buscar" style="font-size: 1.4rem; font-family:'Courier New', Courier, monospace ; border-left: 10px;" /></div>
+    <div class="disclaimer"></div>
+</div>
+
+    <div class="multi-buttonA"  style = "float: right">
+      <button id="b" class="btn btn-success m-3 "
+      data-bs-toggle="modal" data-bs-target="#exampleModalCenter">AGREGAR SUCURSAL</button>
+    </div>
+  </div>
+  <div class="hola" style="margin-top: -7%">
+    <div class="text-center" >
+        <h1 *ngIf="company" class="m-4" id="titulo">{{name}}</h1>
+      </div>
+    <br>
+      <div class="table-users " style="width: 100% ">
+        <div class="header">Sucursales</div>
+    
+        <table cellspacing="0">
+          <thead>
+            <tr>
+              <th >ID</th> 
+              <th >Nombre</th>
+              <th>Dirección</th>
+              <th style="width: 13rem;">Actualizar</th>
+              <th style="width: 13rem;">Eliminar</th>
+              <th style="width: 13rem;">Ver Productos</th>
+              
+           </tr>
+    
+          </thead>
+      
+          <tbody>
+            <tr *ngFor="let branch of branchs | search:search2, let i=index">
+              <td >{{i+1}}</td>
+              <td>{{branch.name}}</td>
+              <td>{{branch.direction}}</td>
+             
+              <td>
+                <div>
+                  <i><img src="../../../assets/img/actualizar.png" alt="" width="20rem" height="20rem"(click)="getBranch(branch._id)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1" ></i>
+                </div>
+              </td>
+
+              <td>
+                <div>
+                  <i><img src="../../../assets/img/eliminar.png" alt="" width="20rem" height="20rem"(click)="deleteBranch(branch._id)"></i>
+                </div>
+              </td>
+
+              <td>
+                <div >
+                  <i><img [routerLink]="['/productBranch/' + branch._id]" src="../../../assets/img/reserva.png" alt="" width="20rem" height="20rem"></i>
+                </div>
+    
+              </td>
+           </tr>
+    
+          </tbody>
+           
+          </table>
+        </div>
+      </div>
+
+<!-- Modal Agregar -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content rounded -0">
+        <div class="modal-body py-0">
+          <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="d-flex main-content">
+            <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/Sucur.jpg');">
+            </div>
+            <div class="content-text p-4">
+              <h3>Agregar Sucursal</h3>
+              <br>
+              <form #addBranchForm="ngForm">
+                <div class="form-group">
+                  <label for="name">Nombre Sucursal</label>
+                  <input id="name" [(ngModel)]="branch.name" name="name" type="text" class="form-control" id="name" placeholder="nombre">
+                </div>
+                <div class=" box form-group" >
+                  <label for="direction">Dirección</label>
+                  <select [(ngModel)]="branch.direction" name="direction" class="form-select" aria-label="Default select example">
+                    <option value="" disabled >Menú de Selección</option>
+                    <option>Guatemala</option>
+                    <option>Amatitlán</option>
+                    <option>Chinautla</option>
+                    <option>Fraijanes</option>
+                    <option>Mixco</option>
+                    <option>Palencia</option>
+                    <option>San José del Golfo</option>
+                    <option>San José Pinula</option>
+                    <option>San Juan Sacatepéquez</option>
+                    <option>San Miguel Petapa</option>
+                    <option>San Pedro Ayampuc</option>
+                    <option>San Pedro Sacatepéquez</option>
+                    <option>San Raymundo</option>
+                    <option>Santa Catarina Pinula</option>
+                    <option>Villa Canales</option>
+                    <option>Villa Nueva</option>
+                    
+                  </select>
+                </div>
+                <div class="form-group">
+                  <div class="multi-buttonA" >
+                  <button (click)="addBranch(addBranchForm)" class="btn btn-success m-3 "
+                    data-bs-toggle="modal" >Agregar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Actualizar -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content rounded -0">
+        <div class="modal-body py-0">
+          <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="d-flex main-content">
+            <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/upda.jpg');">
+            </div>
+            <div class="content-text p-4">
+              <h3>Actualizar sucursal</h3>
+              <form *ngIf="branchUpdate">
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input [(ngModel)]="branchUpdate.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <label for="direction">Dirección</label>
+                  <input [(ngModel)]="branchUpdate.direction" name="direction" type="text" class="form-control" id="direction" placeholder="dirección">
+                </div>
+                <div class="form-group">
+                  <div class="multi-buttonA" >
+                    <button (click)="updateBranch()" class="btn btn-success m-3 "
+                    data-bs-toggle="modal" >Actualizar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

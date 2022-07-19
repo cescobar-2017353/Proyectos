@@ -1,0 +1,41 @@
+<body>
+  <app-nav-bar></app-nav-bar>
+  <br>
+  <div id="pasos">
+    <img style="width: 50rem; height: 12rem;" src="../../../assets/img//wokout.png" alt="">
+  </div>
+  <br>
+<div *ngFor="let room of arrayRoom" id="w" >
+  
+        <div  class="card" >
+          <div class="row" >
+            <div class="col-sm-7">
+              <div class="card-block" >
+                <!--           <h4 class="card-title">Small card</h4> -->
+                <h1 style="text-align: center; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">{{room.name}}</h1>
+                <hr>
+                <h2 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 1.55rem;">Tipo de Habitación:{{room.type}}</h2>
+                <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 1.55rem;" > Precio: {{'Q ' +room.price}}</h3>
+                
+              <div id="divBoton">
+                <button class="noselect" (click)="updateRoom(room._id)" [routerLink]="['/reservationDates/' + idReservation +'/' + room._id +'/' + idHotel]">Reservar</button>
+              </div>
+
+              </div>
+            </div>
+    
+            <div class="col-sm-5">
+              <img 
+                
+                src="../../../assets/img/room.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+
+</div>
+
+
+  
+</body>

@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #91ced9;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+  .formulario-login {
+    width: 320px;
+    height: 420px;
+    background: transparent;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+  }
+  
+  .formulario-login .icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+  }
+  
+  .formulario-login h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+  }
+  
+  .formulario-login label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .formulario-login input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .formulario-login input[type="text"], .formulario-login input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .formulario-login [type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #00f8cf;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+  }
+  
+  .formulario-login input[type="submit"]:hover {
+    cursor: pointer;
+    background: #84ecec;
+    color: #000;
+  }
+  
+  .formulario-login a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+  }
+  
+  .formulario-login a:hover {
+    color: #fff;
+  }
+
+  /* Perfil*/
+
+  #titulo{
+      background-color: #fff;
+      border: solid .4rem #2C3E50 ;
+  }
+  #contenido{
+    background-color: #fff;
+    border: solid .4rem #2C3E50 ;
+    padding-top: 2.5rem;
+  }
+  
+
+  .perfil-usuario-bio{
+      background-color: #fff;
+  }
+
+  .seccion-perfil-usuario .perfil-usuario-body,
+.seccion-perfil-usuario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seccion-perfil-usuario .perfil-usuario-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.seccion-perfil-usuario .perfil-usuario-portada {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 17rem;
+}
+
+
+
+.seccion-perfil-usuario .perfil-usuario-avatar {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    
+    bottom: 1rem;
+    
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar img {
+    width: 15rem;
+    height: 15rem;
+    position: relative;
+    
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.seccion-perfil-usuario .perfil-usuario-body {
+    width: 70%;
+    position: relative;
+    max-width: 750px;
+}
+
+.seccion-perfil-usuario .perfil-usuario-body .titulo {
+    display: block;
+    width: 100%;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.seccion-perfil-usuario .perfil-usuario-body .texto {
+    color: #848484;
+    font-size: 0.95em;
+}
+
+.seccion-perfil-usuario .perfil-usuario-footer,
+.seccion-perfil-usuario .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: rgba(226, 254, 255, 0.432);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-bio {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.seccion-perfil-usuario .lista-datos {
+    width: 50%;
+    list-style: none;
+}
+
+.seccion-perfil-usuario .lista-datos li {
+    padding: 1px 0;
+}
+
+.seccion-perfil-usuario .lista-datos li>.icono {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+#menu{
+    background:transparent;
+    padding-left: 35%;
+}
+#menu ul li{
+    display: inline-block;
+    border-right: 1px solid #ccc;
+
+}
+#menu ul li a{
+    display: block;
+    padding: 15px;
+    color: rgba(13, 239, 255, 0.938);
+}
+
+#menu ul li:hover{
+    color: rgb(50, 2, 104);
+    cursor: pointer;
+}
+
+#menu ul li:hover a{
+    display: block;
+    color: white;
+
+}
+.sect .contact {
+    position:relative;
+    border: 0;
+    align-items:center;
+    border-radius: 50px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    font-size: 1.10em;
+    display:line block;
+}
+
+.sect  .contact i{
+    margin-right: 0.2rem;
+}
+.sect .perfil-usuario-body,
+.sect {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sect .perfil-usuario-body {
+    width: 24%;
+    position: relative;
+    max-width: 750px;
+}
+
+.sect .perfil-usuario-body .titulo {
+    display: block;
+    width: 100%;
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.sect .perfil-usuario-body .texto {
+    color: #848484;
+    font-size: 0.95em;
+}
+
+.sect .perfil-usuario-footer,
+.sect .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: rgba(138, 175, 194, 0.432);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.sect .perfil-usuario-bio {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+

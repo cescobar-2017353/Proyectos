@@ -1,0 +1,51 @@
+
+/*Home*/
+
+body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    background-color: #73C6B6;
+    background-image: url('../../../assets/img/fondoHome.jpg') ;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: digofa;
+    src: url(../../../assets/font/Digofa-RegPersonal.otf);
+  }
+#padre {
+  
+  height: 92vh;
+  /*IMPORTANTE*/
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+#hijo {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+#contenedor{
+    text-align: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: solid 0.5rem;
+    margin: 5rem;
+    
+}
+#contenedor:hover{
+    background-color: #CCD1D1;
+    
+}
+#titulo{
+    font-family: digofa ;
+    color: black;
+    font-size: 2rem;
+    padding: 1rem;
+}

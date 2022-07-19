@@ -1,0 +1,206 @@
+<body>
+  
+
+<app-navbar></app-navbar>
+<div>
+  <div class="text-center" >
+
+    <div style = "float: left" >
+      <div  class="input-group"><input [(ngModel)]="search" class="search" type="text" placeholder="Buscar" style="font-size: 1.4rem; font-family:'Courier New', Courier, monospace ; border-left: 10px;" /></div>
+      <div class="disclaimer"></div>
+  </div>
+
+    <div class="multi-buttonA"  style = "float: right">
+      <button id="b" class="btn btn-success m-3 "
+      data-bs-toggle="modal" data-bs-target="#exampleModalCenter" >Agregar Producto</button>
+    </div>
+    <div class="multi-buttonB"  style = "float: right">
+    <button id="b2" (click)="getProducts2()" class="btn btn-success m-3 " >Ordenar de Menor a Mayor</button>
+    </div>
+  
+    <div class="multi-buttonC"  style = "float: right">
+    <button id="b2" (click)="getProducts()"class="btn btn-success m-3 ">Ordenar de Mayor a Menor</button>
+    </div>
+  
+  </div>
+
+</div>
+
+<div class="hola" style="margin-top: -7%">
+  <div class="text-center" >
+    <h1 *ngIf="company" class="m-4" id="titulo">{{name}}</h1>
+  </div>
+<br>
+  <div class="table-users" style="width: 100%">
+    <div class="header">Productos Empresa</div>
+
+    <table cellspacing="0">
+      <thead>
+        <tr>
+          <th>Numero</th>
+          <th> Nombre </th>
+          <th>Proveedor</th>
+          <th>stock</th>
+          <th style="width: 15rem;">Actualizar</th>
+          <th style="width: 15rem;">Eliminar</th>
+          <th style="width: 15rem;">Enviar producto</th>
+          
+          
+       </tr>
+
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let productCompany of productCompanys | search:search , let i=index">
+          <td >{{i+1}}</td>
+          <td>{{productCompany.name}}</td>
+          <td>{{productCompany.supplier}}</td>
+          <td>{{productCompany.stock}}</td>
+          
+
+          <td>
+            <div>
+              <i><img src="../../../assets/img/actualizar (1).png" alt="" width="20rem" height="20rem" (click)="getProductCompany(productCompany._id)" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2" aria-controls="offcanvasExample"></i>
+
+            </div>
+          </td>
+          <td>
+            <div>
+              <i><img src="../../../assets/img/eliminar.png" alt="" width="20rem" height="20rem"(click)="deleteProduct(productCompany._id)"></i>
+            </div>
+          
+
+          </td>
+          <td>
+            <div>
+              <i><img src="../../../assets/img/envio-gratis.png" alt="" width="20rem" height="20rem"(click)="getProductCompany(productCompany._id)" data-bs-toggle="modal" data-bs-target="#modalProductBranch"></i>
+            </div>
+
+          </td>
+       </tr>
+
+      </tbody>
+       
+      </table>
+    </div>
+  </div>
+
+<!-- Modal Agregar -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content rounded -0">
+      <div class="modal-body py-0">
+        <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex main-content">
+          <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/p2.jpg');">
+          </div>
+          <div class="content-text p-4">
+            <h3>Agregar Producto</h3>
+            <form #addProductCompanyForm="ngForm">
+              <div class="form-group">
+                <label for="name">Nombre Producto</label>
+                <input [(ngModel)]="productCompany.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <label for="supplier">Proveedor</label>
+                <input [(ngModel)]="productCompany.supplier" name="supplier" type="text" class="form-control" id="supplier" placeholder="proveedor">
+              </div>
+              <div class="form-group">
+                <label for="stock">Stock</label>
+                <input [(ngModel)]="productCompany.stock"  name="stock" type="number" class="form-control" id="stock" placeholder="stock">
+              </div>
+
+              <div class="form-group">
+                <div class="multi-buttonA" >
+                <button (click)="addProductCompany(addProductCompanyForm)" class="btn btn-success m-3 "
+                  data-bs-toggle="modal" >Agregar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Actualizar -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content rounded -0">
+      <div class="modal-body py-0">
+        <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex main-content">
+          <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/acpro.png');">
+          </div>
+          <div class="content-text p-4">
+            <h3>Actualizar Producto</h3>
+            <form *ngIf="productCompanyUpdate">
+              <div class="form-group">
+                <label for="name">Nombre del producto</label>
+                <input [(ngModel)]="productCompanyUpdate.name" name="name" type="text" class="form-control" id="name" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <label for="supplier">Proveedor</label>
+                <input [(ngModel)]="productCompanyUpdate.supplier" name="supplier" type="text" class="form-control" id="supplier" placeholder="Proveedor">
+              </div>
+              <label for="stock">Stock</label>
+                <input [(ngModel)]="productCompanyUpdate.stock" name="stock" type="text" class="form-control" id="stock" placeholder="Stock">
+              <div class="form-group">
+                <div class="multi-buttonA" >
+                  <button (click)="updateProduct()" class="btn btn-success m-3 "
+                  data-bs-toggle="modal" >Actualizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal add productBranch -->
+<div class="modal fade" id="modalProductBranch" tabindex="-1" role="dialog" aria-labelledby="modalProductBranch" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content rounded -0">
+      <div class="modal-body py-0">
+        <button  style="float:right" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="d-flex main-content">
+          <div class="bg-image promo-img mr-3" style="background-image: url('../../../assets/img/addpBranch.jpg');">
+          </div>
+          <div class="content-text p-4">
+            <h3>Agregar producto a sucursal</h3>
+            <br>
+            <form #addProductForm="ngForm">
+              <div class="mb-3">
+                <label  for="exampleInputEmail1" class="form-label" id="texto">Cantidad a enviar</label>
+                <input [(ngModel)]="productBranch.stock" style="width: 16rem;" required  name="name" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  >
+              </div>
+
+              <div class=" box form-group" >
+                <label for="direction">Sucursal</label>
+                <select [(ngModel)]="productBranch.branch" name="direction" class="form-select" aria-label="Default select example">
+                  <option value="" disabled >Menú de Selección</option>
+                  <option *ngFor="let branch of branchs" value="{{branch._id}}">{{branch.name}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="multi-buttonA" >
+                <button (click)="addProductBranch(addProductForm)"  class="btn btn-success m-3 "
+                  data-bs-toggle="modal" >Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>

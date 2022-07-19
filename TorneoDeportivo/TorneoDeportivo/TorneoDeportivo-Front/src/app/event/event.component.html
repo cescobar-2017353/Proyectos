@@ -1,0 +1,101 @@
+<navbar></navbar>
+
+
+
+
+<body>
+    <br>
+    <br>
+    <br>
+
+    <div class="search-container" style="margin-left: 10%">
+        <input  [(ngModel)]="search"  type="text" name="search" placeholder="Search..." class="search-input">
+        <a href="#" class="search-btn">
+                <i class="fas fa-search"></i>      
+        </a>
+    </div>
+    <header style="margin-left: 40%; color: white;">
+        <h1><b>Eventos del hotel</b></h1>
+      </header>
+    <button style="margin-top: 2%; float: right; margin-right: 4%;" class="button-36" role="button"   data-bs-toggle="modal" data-bs-target="#exampleModal">Add an new Event</button>
+
+<div class="container" style="margin-left: 12%; margin-top: 3%;">
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nombre de los eventos</th>
+                <th>Horario de los eventos</th>
+                <th>Tipo de los eventos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events| search:search, let i=index">
+                <td>{{i+1}}</td>
+                <td>{{event.name}}</td>
+                <td>{{event.startDate}} - {{event.finishDate}}</td>
+                <td>{{event.type}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+
+
+<!-- Modal save League -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #addEventForm="ngForm">
+                <div class="mb-3">
+                  <label for="user" class="form-label">User</label>
+                  <input [(ngModel)]="event.user" name="user" type="text" class="form-control" id="user" aria-describedby="User">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input [(ngModel)]="events.name" name="name" type="text" class="form-control" id="name" aria-describedby="Nombre">
+                  </div>
+                  <div class="mb-3">
+                    <label for="startDate" class="form-label">Fecha Inicio</label>
+                    <input [(ngModel)]="event.startDate" name="startDate" type="date" class="form-control" id="startDate" aria-describedby="Fecha Inicio">
+                  </div>
+                  <div class="mb-3">
+                    <label for="finishDate" class="form-label">Fecha Final</label>
+                    <input [(ngModel)]="event.finishDate" name="finishDate" type="date" class="form-control" id="finishDate" aria-describedby="Fecha Final">
+                  </div>
+                  <div class="mb-3">
+                    <label for="services" class="form-label">Servicios</label>
+                    <input [(ngModel)]="events.services" name="services" type="text" class="form-control" id="services" aria-describedby="Servicios">
+                  </div>
+                  <div class="mb-3">
+                    <label for="prices" class="form-label">Precio</label>
+                    <input [(ngModel)]="events.prices" name="prices" type="text" class="form-control" id="prices" aria-describedby="Precio">
+                  </div>
+                  <div class="mb-3">
+                    <label for="type" class="form-label">Tipo</label>
+                    <input [(ngModel)]="event.type" name="type" type="text" class="form-control" id="type" aria-describedby="Tipo">
+                  </div>
+                  <div class="mb-3">
+                    <label for="cost" class="form-label">Costo</label>
+                    <input [(ngModel)]="event.cost" name="cost" type="text" class="form-control" id="cost" aria-describedby="Costo">
+                  </div>
+            
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="createEvent(addEventForm)"  type="button" class="btn btn-primary"
+          data-bs-dismiss="modal">Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
